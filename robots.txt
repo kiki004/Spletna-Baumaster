@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /podstrani/connect.php
+
+Sitemap: https://www.sgrad.si/sitemap.xml

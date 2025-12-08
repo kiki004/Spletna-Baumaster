@@ -1,0 +1,61 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^sgrad.si$
+RewriteRule ^(.*)$ $1 [R=301,L]
+
+# This tag loads the rewrite module
+<IfModule mod_rewrite.c>
+# enable the rewrite engine
+    RewriteEngine On
+# Set your root directory
+    RewriteBase /
+
+# Remove the .html extension
+    RewriteCond %{THE_REQUEST} ^GET\ (.*)\.html\ HTTP
+    RewriteRule (.*)\.html$ $1 [R=301]
+
+# Remove index and reference the directory
+    RewriteRule (.*)/index$ $1/ [R=301]
+
+# Remove trailing slash if not a directory
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} /$
+    RewriteRule (.*)/ $1 [R=301]
+
+# Forward request to html file, **but don't redirect (bot friendly)**
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteCond %{REQUEST_URI} !/$
+    RewriteRule (.*) $1\.html [L]
+    </IfModule>
+    
+   # This tag loads the rewrite module
+    <IfModule mod_rewrite.c>
+# enable the rewrite engine
+    RewriteEngine On
+# Set your root directory
+    RewriteBase /
+
+# Remove the .html extension
+    RewriteCond %{THE_REQUEST} ^GET\ (.*)\.html\ HTTP
+    RewriteRule (.*)\.php$ $1 [R=301]
+    
+ # Remove index and reference the directory
+    RewriteRule (.*)/index$ $1/ [R=301]
+    
+# Remove trailing slash if not a directory
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} /$
+    RewriteRule (.*)/ $1 [R=301]
+
+# Forward request to html file, **but don't redirect (bot friendly)**
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteCond %{REQUEST_URI} !/$
+    RewriteRule (.*) $1\.php [L]
+    </IfModule>
+    
+
+    php – BEGIN cPanel-generated handler, do not edit
+        Set the “ea-php80” package as the default “PHP” programming language.
+        <IfModule mime_module>
+        AddHandler application/x-httpd-ea-php80___lsphp .php .php8 .phtml
+        </IfModule>
+        php – END cPanel-generated handler, do not edit
