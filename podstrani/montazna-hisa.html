@@ -21,9 +21,7 @@
 
 <style>
   
-        .naslov{
-            margin-top: 15%;
-        }
+        
 @media (max-width:1100px) {
     .naslov{
             margin-top: 20%;
@@ -32,6 +30,9 @@
 @media (max-width:700px) {
     .naslov{
             margin-top: 40%;
+        }
+        iframe{
+            height: 600px;
         }
 }
 
@@ -61,14 +62,14 @@
             </div>
      </header>
     </section>
-     <!-----------------------------1.DEL--------------------------------------------------------------->
-         <div class="bgimg1"> 
+     <div class="bgimg2">
+        <section id="main-box">
             <div class="naslov">
-                <h1 data-aos="fade-right"data-aos-duration="1000"data-aos-delay="150">Montažna hiška</h1>
+                <h1 data-aos="fade-right"data-aos-duration="1000"data-aos-delay="150">Montažna hiša</h1>
                 <p data-aos="fade-left"data-aos-duration="1000"data-aos-delay="250">
                  Gre za hišo z dvokapno streho. Hiša ima pritličje z uporabno površino približno 80 m² in vključuje dnevni prostor, dve spalnici, kopalnico, kuhinjo, shrambe in tehnični prostor.
 
-Objekt je lesene montažne konstrukcije s toplotno izolacijo iz vphanih lesenih vlaken, podprto z vlaknenimi lesenimi ploščami na notranji in zunanji strani. Temelji na betonski plošči, kritina je iz betonskih strešnikov.
+Objekt je lesene montažne konstrukcije s toplotno izolacijo iz vphanih lesenih vlaken, podprto z vlaknenimi lesenimi ploščami na notranji in zunanji strani. Temelji na betonski plošči, kritina je iz glinenih strešnikov.
 
 Pridruženi sta garaža in drvarnica. Nadstrešnice (terase) imajo skupno površino približno 25 m².
 
@@ -77,8 +78,15 @@ Hiša je opremljena s toplotno črpalko za ogrevanje, talnim ogrevanjem, lastno 
                 </p>
                 
             </div >
+        </section>
+    </div>
+    
+    
+    <!-----------------------------2.DEL--------------------------------------------------------------->
+         <div class="bgimg1"> 
             
-                <iframe src="./mateja.html" style="width:85%; height:1200px; background-color: #2e2925; border-radius: 40px;" loading="lazy"></iframe>  
+            
+                <iframe src="Visualization/mateja.html"  loading="lazy"></iframe>  
             
          </div> 
          
@@ -90,19 +98,15 @@ Hiša je opremljena s toplotno črpalko za ogrevanje, talnim ogrevanjem, lastno 
         <div class="gallery-wrap">
             <img src="../img/back.png" id="backbtn">
             <div class="gallery">
+             
                 <div>
                     <a href="../img/montazne/Mateja/2d_tloris.png" data-lightbox="roadtrip" >
                         <img src="../img/montazne/Mateja/2d_tloris.png" alt="Montažna hiša" />
                     </a>
-            
-                </div>
-                <div>
                     <a href="../img/montazne/Mateja/Mateja01.jpg" data-lightbox="roadtrip" >
                         <img src="../img/montazne/Mateja/Mateja01.jpg" alt="Montažna hiša" />
                     </a>
-                    <a href="../img/montazne/Mateja/Mateja02.jpg" data-lightbox="roadtrip" >
-                        <img src="../img/montazne/Mateja/Mateja02.jpg" alt="Montažna hiša" />
-                    </a>
+                    
                     <a href="../img/montazne/Mateja/Mateja03.jpg" data-lightbox="roadtrip" >
                         <img src="../img/montazne/Mateja/Mateja03.jpg" alt="Montažna hiša" />
                     </a>
@@ -171,8 +175,11 @@ Hiša je opremljena s toplotno črpalko za ogrevanje, talnim ogrevanjem, lastno 
 </div>
 </div>
 <!-------------------------------------------video--------------------------------------------->
- <div class="container-ozadje"> 
-
+ <div class="container-ozadje">
+    <div id="Sistemi-box">
+        <h2>Ali želite izvedeti več o konštrukcijskih sistemih?</h2>
+        <a href="podstrani/tehnologija" class="gumb-baumaster">Preveri sestavo</a>
+    </div>
    
 </div> 
 
@@ -218,7 +225,7 @@ Hiša je opremljena s toplotno črpalko za ogrevanje, talnim ogrevanjem, lastno 
         </div>
         <footer>©2026 Baumaster, Vse pravice pridržane. </footer>
     </div>  
-    <a href="#top" class="scrollLink">
+    <a href="#top" class="scrollLink" style="display: inline-flex;@media (min-width:700px) { display: none; }">
         <span class="material-icons">arrow_upward</span>
       </a>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -261,9 +268,13 @@ Hiša je opremljena s toplotno črpalko za ogrevanje, talnim ogrevanjem, lastno 
     let nextbtn = document.getElementById("nextbtn");
     
     scrollContainer.addEventListener("wheel", (evt) => {
-        evt.preventDefault();
-        scrollContainer.scrollLeft += evt.deltaY + 500;
-    });
+    evt.preventDefault();
+    
+    // Nastavi poljubno občutljivost (npr. 2 ali 3 za hitrejši scroll)
+    const sensitivity = 5; 
+    
+    scrollContainer.scrollLeft += evt.deltaY * sensitivity;
+});
     nextbtn.addEventListener("click", ()=>{
         scrollContainer.style.scrollBehavior = "smooth";
         scrollContainer.scrollLeft += 300;

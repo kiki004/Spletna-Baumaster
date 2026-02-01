@@ -301,6 +301,7 @@ color: #ffffff;
   width: 350px;
   object-fit: cover;
   transition: .4s ease-in-out;
+  
 }
 .projekti p{
     text-align: center;
@@ -459,7 +460,7 @@ footer{
   }
   #ozadje{
     background-color: var(--rj);
-    border-bottom: var(--rj)solid 17px;
+   
     width: 100%;
     overflow:auto;
     transition: .5s linear;
